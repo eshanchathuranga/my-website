@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>SKY7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">SKY7</label>
+      <ul>
+        <li><a href="../index.html">About</a></li>
+        <li><a class="active" href="./projects.html">Projects</a></li>
+        <li><a href="./contacs.html">Contact</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+        <li><a href="./index.html">LogIn/SignUp</a></li>
+        <li><a href="./index.html">LogOut</a></li>
+      </ul>
+    </nav>
+    <section>
+      <div class="main">
+         <h1 class="header">Projects</h1>
+          <div class="projects">
+            <div class="p-1">
+              <h2>Dialog ESMS API</h2>
+              <p>It is an API package to handle a dialog ESMS service build
+                using javascript. I published it an npm package library and 
+                you can get deatails here <a href="https://www.npmjs.com/package/@eshanchathuranga/esms-api">(@eshanchathuranga/esms-api)</a>
+              </p>
+              <h3>How it work</h3>
+              <p>Frist you want to Dialod ESMS gateway account. Contact
+              <a href="https://www.dialog.lk/">Dialog Axiata PLC</a> to get deatails.
+              </p>
+              <h3>Usage</h3>
+              <div class="code-container">
+                <pre class="code-content"><code class="language-javascript">
+//
+// Import esms api module
+
+const config = require('@eshanchathuranga/esms-api/index');
+                  
+// set configuration
+// username - {string} - 'test'
+// pssword - {string} - 'test@1234'
+
+const configaration = await config(username, password)
+                  
+// Get return auth data
+
+const authData = configaration.then(data => {
+                    console.log(data);
+ });
+//
+                </code></pre>
+            </div>
+            <h3>Create Campaign</h3>
+            <div class="code-container">
+              <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, createCampaign} = require('@eshanchathuranga/esms-api/index');
+                
+                
+// Create campaign with numbers
+// campaignName - {string} - 'test01'
+// mask - {string} - 'test'
+// numbers - {array} - ['0770000000', '0720000000', '0750000000', '0700000000', '0740000000', '0780000000']
+// message - {string} - 'Hello there! This is test massege'
+                
+                
+const createCamp = await createcampaign(campaignName, mask, numbers, message);
+                
+// Get return campaign data
+const campaignData = createCamp.then(data => {
+                        return data;
+});
+                
+//
+              </code></pre>
+          </div>
+          <h3>Get campaign List</h3>
+          <div class="code-container">
+            <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, getList} = require('@eshanchathurang/esms-api/index');
+              
+// Get list
+const list = getList().then(data => {
+// List data is here!
+return data;
+});
+            </code></pre>
+        </div>
+        <h3>Send SMS</h3>
+        <div class="code-container">
+          <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, send} = require('@eshanchathurang/esms-api/index');
+            
+// Send SMS for created compaign
+// compaignId - {string} - '000000'
+// paymentType - value='0' (To main Wallet) /   value='1' (To add bill)
+                           
+
+            
+const sendSMS = await send(campaignId, paymentType);
+            
+// Get sending status
+const status = sendSMS.then(status => {
+        return status;
+});
+            
+//
+          </code></pre>
+      </div>
+      <h3>Create template</h3>
+      <div class="code-container">
+        <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, createTemplate} = require('@eshanchathurang/esms-api/index');
+          
+// Create a Template
+// templateName - {string} - 'test01'
+// message - {string} - 'Hello There!'
+          
+const create = createTemplate(templateName, message);
+          
+// Get returnning status
+create.then(status => {
+         return status;
+});
+          
+//
+        </code></pre>
+    </div>
+    <h3>Get template list</h3>
+    <div class="code-container">
+      <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, listTemplate} = require('@eshanchathurang/esms-api/index');
+        
+// get templates
+const templates = listTemplate().then(list => {
+         // list in here!
+         return list;
+});
+        
+//
+      </code></pre>
+  </div>
+  <h3>Get template Data</h3>
+  <div class="code-container">
+    <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, getTemplateData} = require('@eshanchathurang/esms-api/index');
+      
+// Get Data
+const templateData = await getTemplateData(templateId).then(data => {
+     // Template data in here!
+     return data;
+});
+      
+//
+    </code></pre>
+</div>
+<h3>Get report</h3>
+<div class="code-container">
+  <pre class="code-content"><code class="language-javascript">
+// Import module
+const {config, getReport} = require('@eshanchathurang/esms-api/index');
+    
+// Get report data
+// from - {Date} - 'yyyy-mm-dd' / 'yyyy-mm'
+// to - {date} - 'yyyy-mm-dd' / 'yyyy-mm'
+// option - {option} - 'daily' / 'monthly'
+const reportData = await getReport(from, to, option).then(data => {
+         // Report data in here!
+          return data;
+});
+    
+//
+  </code></pre>
+</div>
+<h3>Error handle</h3>
+<div class="code-container">
+  <pre class="code-content"><code class="language-javascript">
+// Use catch promise
+  .catch(error) {
+       throw error
+
+}
+    
+//
+  </code></pre>
+</div>
+      
+
+
+
+
+
+             </div>
+          </div>
+
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>SKY7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">SKY7</label>
+      <ul>
+        <li><a href="../index.html">About</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contacs.html">Contact</a></li>
+        <li><a class="active" href="./profile.html">Profile</a></li>
+        <li><a href="./index.html">LogIn/SignUp</a></li>
+        <li><a href="./index.html">LogOut</a></li>
+      </ul>
+    </nav>
+    <section>
+      <div class="main">
+          <div class="profile-picture">
+            <img id="user-img" src="https://i.ibb.co/Z1p0fsW/logo1.jpg" alt="">
+          </div>
+            <div class="change-profile">
+              <div class="image-text">Upload Photo :</div>
+              <input id="image-input" type="file" required>
+            </div>
+            <div class="details">
+              <div class="name">
+                <div>Change name :</div>
+                <input id="name-input" type="text" placeholder="Enter new name.." required>
+              </div>
+              <div class="name">
+                <div>Change password:</div>
+                <input id="password-input" type="text" placeholder="Enter new password.." required>
+              </div>
+            </div>
+              <button id="save" type="submit">Save</button>
+      </div>
+    </section>
+  </body>
+  <script type="module" src="../js/setProfile.js"></script>
+</html>
